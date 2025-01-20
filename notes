@@ -1,0 +1,14 @@
+Why You Were Asked to Create DynamoDB Tables:
+1. Storing Data in a Structured Way
+Before loading data, you need to have a table structure in DynamoDB to hold the data. These tables will define how the data is organized and how it can be queried or manipulated.
+Without tables, there’s no place to store the data.
+
+2. Understanding Partition Keys (Primary Keys)
+Partition Key is crucial because it uniquely identifies each item in a DynamoDB table. It's the primary means of distributing data across DynamoDB’s infrastructure. 
+You need to define a partition key to ensure that each record is uniquely identifiable.
+
+Why You Were Asked to Add Attributes:
+1. Define the Structure of Data Records
+In DynamoDB, attributes are the fields (columns) that hold data within each item (row). After creating the table, you need to define what kind of data each item will contain by adding attributes.
+This is important for structuring the data so that it can be queried and analyzed efficiently.
+
