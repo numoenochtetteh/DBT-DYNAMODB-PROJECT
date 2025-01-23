@@ -60,5 +60,43 @@ if __name__ == '__main__':
 
 
 
+#SQL CODES 
+--creating a storage integration in Snowflake for accessing data stored in Amazon S3.
+--The code sets up a connection (called a storage integration) between Snowflake and an S3 bucket so Snowflake can access data stored in that S3 bucket securely.
+
+CREATE STORAGE INTEGRATION S3_SF_INT1
+  TYPE = EXTERNAL_STAGE
+  STORAGE_PROVIDER = 'S3'
+  ENABLED = TRUE
+  STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::916647281885:role/mysnowflakerole002'
+  STORAGE_ALLOWED_LOCATIONS = ('s3://bucket-training-002/dynamo/');
+
+
+
+
+-- This command describes the storage integration named S3_SF_INT1.
+-- It provides details such as the AWS IAM User ARN and External ID,
+-- which are required to establish a trust relationship between Snowflake and AWS.
+-- This ensures Snowflake can securely access S3 bucket data.
+
+DESC INTEGRATION S3_SF_INT1;
+
+
+
+
+-- Create an external stage in Snowflake that links to the S3 bucket and uses the specified storage integration and file format.
+CREATE STAGE my_s3_stage
+  STORAGE_INTEGRATION = S3_SF_INT1
+  URL = 's3://bucket-training-002/dynamo/'
+  FILE_FORMAT = my_json_format;
+
+
+
+
+
+
+
+
+
 
 
