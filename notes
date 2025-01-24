@@ -241,7 +241,12 @@ In summary: You’re creating a system where data flows smoothly from DynamoDB t
 
 
 
-
+Feature	Policies	Roles
+Purpose	Defines permissions (what actions can be taken).	Provides temporary access to AWS resources.
+Usage	Attached to users, groups, roles, or resources.	Assumed by entities (users, AWS services, applications).
+Credentials	Does not manage credentials.	Issues temporary credentials via AWS STS.
+Scope	Grants permissions directly.	Used for delegation and temporary access.
+Trust Relationship	Not applicable.	Requires a trusted entity (who can assume the role).
 
 
 
